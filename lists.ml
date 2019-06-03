@@ -11,6 +11,17 @@ let rec filter f xs =
     | [] -> []
     | h :: t -> if f h then h :: filter f t else filter f t
 
+(* Tail-recursive filter *)
+let filter_tailrec f lst =
+  let rec aux acc = function
+    | [] -> acc
+    | (x :: xs) -> 
+      if f x then
+        aux (acc @ [x]) xs 
+      else 
+        aux acc xs
+    in aux [] lst
+
 (* Right-fold function *)
 let rec foldr f b xs =
   match xs with
