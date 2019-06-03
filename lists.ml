@@ -27,3 +27,10 @@ let rec foldr f b xs =
   match xs with
     | [] -> b
     | h :: t -> f h (foldr f b t)
+
+(* Left-fold function *)
+let foldl f b lst =
+  let rec aux acc = function
+    | [] -> acc
+    | (x :: xs) -> aux (f x acc) xs
+    in aux b lst
