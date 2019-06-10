@@ -34,3 +34,12 @@ let foldl f b lst =
     | [] -> acc
     | (x :: xs) -> aux (f x acc) xs
     in aux b lst
+
+let range i j =
+  let rec aux acc n = 
+    if n < i then acc else aux (n :: acc) (n - 1)
+  in aux [] j
+
+let build_range f i j =
+  map f (range i i)
+  
