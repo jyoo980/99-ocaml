@@ -42,4 +42,10 @@ let range i j =
 
 let build_range f i j =
   map f (range i i)
-  
+
+let fib n =
+  let rec aux prev curr = function
+    | 0 -> prev
+    | 1 -> curr
+    | x -> aux curr (prev + curr) (x - 1)
+  in aux 0 1 n
